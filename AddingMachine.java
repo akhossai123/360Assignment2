@@ -7,6 +7,7 @@ package cse360assignment02;
  */
 public class AddingMachine {
   private int total;
+  StringBuffer past;
   /** 
    * this makes total equal to zero
    * 
@@ -15,6 +16,7 @@ public class AddingMachine {
    */
   public AddingMachine () {
     total = 0;  // not needed - included for clarity
+    past = new StringBuffer("0");
   }
   /** 
    * this returns the total
@@ -23,7 +25,7 @@ public class AddingMachine {
    *
    */
   public int getTotal () {
-    return 0;
+    return total;
   }
   /** 
    * this adds a value
@@ -32,6 +34,8 @@ public class AddingMachine {
    *
    */
   public void add (int value) {
+	  total = total +value;
+	  past.append(" + " + value);
   }
   /** 
    * this subtracts a value
@@ -40,6 +44,9 @@ public class AddingMachine {
    *
    */
   public void subtract (int value) {
+	  total = total - value;
+	  past.append(" - " +value); 
+	  
   }
   /** 
    * this prints the history
@@ -48,7 +55,7 @@ public class AddingMachine {
    *
    */
   public String toString () {
-    return "";
+    return past.toString();
   }
   /** 
    * this clears the history
@@ -57,5 +64,12 @@ public class AddingMachine {
    *
    */
   public void clear() {
+	  for (int i=0;i<10;i++) {
+		  past.append("a");
+	  }
+	  past.delete(0,past.length());
+	  past.append("0");
   }
+  
+  
 }
